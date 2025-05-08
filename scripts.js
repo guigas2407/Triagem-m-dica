@@ -30,4 +30,20 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("peso").value = "";
       document.getElementById("sintomas").value = "";
     });
-  });
+});
+
+const campoAcesso = document.getElementById("busca-acesso");
+
+campoAcesso.addEventListener("input", function () {
+    const termoBusca = campoAcesso.value.tolowerCase();
+    const consultas = document.querySelectorAll(".consultas-lista ul");
+
+    consultas.forEach(consulta => {
+        const texto = consulta.textContent.toLowerCase();
+        if (texto.includes(termoBusca)) {
+            consulta.style.display = "block";
+        } else {
+            consulta.style.display = "none";
+        }
+    });
+});
